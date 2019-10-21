@@ -1,6 +1,8 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
-const App = () => {
+const App = (props) => {
+  const {titles} = props;
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -123,7 +125,7 @@ const App = () => {
                       </div>
                     </div>
                     <h2 className="place-card__name">
-                      <a href="#">Beautiful &amp; luxurious apartment at great location</a>
+                      <a href="#">{titles[0]}</a>
                     </h2>
                     <p className="place-card__type">Apartment</p>
                   </div>
@@ -155,7 +157,7 @@ const App = () => {
                       </div>
                     </div>
                     <h2 className="place-card__name">
-                      <a href="#">Wood and stone place</a>
+                      <a href="#">{titles[1]}</a>
                     </h2>
                     <p className="place-card__type">Private room</p>
                   </div>
@@ -187,7 +189,7 @@ const App = () => {
                       </div>
                     </div>
                     <h2 className="place-card__name">
-                      <a href="#">Canal View Prinsengracht</a>
+                      <a href="#">{titles[2]}</a>
                     </h2>
                     <p className="place-card__type">Apartment</p>
                   </div>
@@ -222,7 +224,7 @@ const App = () => {
                       </div>
                     </div>
                     <h2 className="place-card__name">
-                      <a href="#">Nice, cozy, warm big bed apartment</a>
+                      <a href="#">{titles[3]}</a>
                     </h2>
                     <p className="place-card__type">Apartment</p>
                   </div>
@@ -254,7 +256,7 @@ const App = () => {
                       </div>
                     </div>
                     <h2 className="place-card__name">
-                      <a href="#">Wood and stone place</a>
+                      <a href="#">{titles[3]}</a>
                     </h2>
                     <p className="place-card__type">Private room</p>
                   </div>
@@ -269,6 +271,11 @@ const App = () => {
       </main>
     </div>
   );
+};
+
+
+App.propTypes = {
+  titles: PropTypes.array.isRequired
 };
 
 export default App;
