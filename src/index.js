@@ -8,7 +8,9 @@ const init = () => {
     places: [`Beautiful & luxurious apartment at great location`, `Wood and stone place`, `Canal View Prinsengracht`, `Nice, cozy, warm big bed apartment`]
   };
 
-  ReactDOM.render(<App places={settings.places} />, document.querySelector(`#root`));
+  const handleNameClick = () => {};
+
+  ReactDOM.render(<App places={settings.places} onNameClick={handleNameClick} />, document.querySelector(`#root`));
 };
 
 init();
