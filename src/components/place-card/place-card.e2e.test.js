@@ -7,10 +7,10 @@ Enzyme.configure({adapter: new Adapter()});
 
 it(`E2E test on name click`, () => {
   const mocPlace = `Тестовое место`;
-  const clickHandler = jest.fn();
-  const placeCard = shallow(<PlaceCard place={mocPlace} onNameClick={clickHandler} />);
+  const onNameCLick = jest.fn();
+  const placeCard = shallow(<PlaceCard place={mocPlace} onNameClick={onNameCLick} />);
   const placeAnchor = placeCard.find(`.place-card__name a`);
   placeAnchor.simulate(`click`);
 
-  expect(clickHandler).toHaveBeenCalledTimes(1);
+  expect(onNameCLick).toHaveBeenCalledTimes(1);
 });
