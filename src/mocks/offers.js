@@ -1,5 +1,6 @@
 const offers = [
   {
+    id: 1,
     place: `Beautiful & luxurious apartment at great location`,
     type: `Apartment`,
     imgSrc: `img/apartment-01.jpg`,
@@ -9,6 +10,7 @@ const offers = [
     isBookmark: false
   },
   {
+    id: 2,
     place: `Wood and stone place`,
     type: `Private room`,
     imgSrc: `img/room.jpg`,
@@ -18,6 +20,7 @@ const offers = [
     isBookmark: false
   },
   {
+    id: 3,
     place: `Canal View Prinsengracht`,
     type: `Apartment`,
     imgSrc: `img/apartment-02.jpg`,
@@ -27,6 +30,7 @@ const offers = [
     isBookmark: true
   },
   {
+    id: 4,
     place: `Wood and stone place`,
     type: `Private room`,
     imgSrc: `img/apartment-03.jpg`,

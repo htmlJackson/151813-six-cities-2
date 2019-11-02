@@ -23,6 +23,6 @@ describe(`E2E test for Card`, () => {
     const placeAnchor = placeCard.find(`.place-card`);
     placeAnchor.simulate(`mouseover`);
 
-    expect(onCardHover).toBeCalledWith(expect.any(Object));
+    expect(onCardHover).toBeCalledWith(expect.any(Number));
   });
 });

@@ -10,22 +10,26 @@ class PlacesList extends React.PureComponent {
       activeCard: null,
     };
 
-    this._cardHandleHover = this._cardHandleHover.bind(this);
+    this.handleCardHover = this.handleCardHover.bind(this);
+    this.handleNameClick = this.handleNameClick.bind(this);
   }
 
-  _cardHandleHover(activeCardData) {
-    this.setState(() => ({activeCard: activeCardData}));
+  handleCardHover(offerId) {
+    return () => {
+      this.setState({acriveCard: offerId});
+    };
+
   }
 
-  _cardNameClick() {
-    return;
+  handleNameClick() {
+
   }
 
   render() {
     const {places} = this.props;
     return (
       <div className="cities__places-list places__list tabs__content">
-        {places.map((it, index) => <PlaceCard offer={places[index]} onNameClick={this._cardNameClick} onCardHover={this._cardHandleHover} key={`place-${index}`} />)}
+        {places.map((it, index) => <PlaceCard offer={places[index]} onNameClick={this.handleNameClick} onCardHover={this.handleCardHover} key={`place-${index}`} />)}
       </div>
     );
   }
