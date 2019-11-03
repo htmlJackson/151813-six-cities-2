@@ -1,12 +1,12 @@
 import React from "react";
-import App from "../app/app.jsx";
+import PlacesList from "../places-list/places-list.jsx";
 import renderer from "react-test-renderer";
 import {offers} from "../../mocks/offers.js";
 
-it(`App correctly renders after relaunch`, () => {
-  const mocPlaces = offers;
+it(`Place-list correctly renders after relaunch`, () => {
+  const mocOffers = offers;
   const tree = renderer
-  .create(<App places={mocPlaces} />)
+  .create(<PlacesList places={mocOffers} />)
   .toJSON();
 
   expect(tree).toMatchSnapshot();

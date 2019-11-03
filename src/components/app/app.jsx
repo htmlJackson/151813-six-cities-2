@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import PlaceCard from '../place-card/place-card.jsx';
+import PlacesList from '../places-list/places-list.jsx';
 
 const App = (props) => {
-  const {places, onNameClick} = props;
+  const {places} = props;
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -97,9 +97,7 @@ const App = (props) => {
                 */}
 
               </form>
-              <div className="cities__places-list places__list tabs__content">
-                {places.map((it, index) => <PlaceCard place={places[index]} onNameClick={onNameClick} key={`place-${index}`} />)}
-              </div>
+              <PlacesList places={places} />
             </section>
             <div className="cities__right-section">
               <section className="cities__map map"></section>
@@ -112,8 +110,7 @@ const App = (props) => {
 };
 
 App.propTypes = {
-  places: PropTypes.array.isRequired,
-  onNameClick: PropTypes.func.isRequired
+  places: PropTypes.array.isRequired
 };
 
 export default App;
