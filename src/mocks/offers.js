@@ -7,7 +7,8 @@ const offers = [
     price: `100`,
     rating: 4.5,
     isPremium: true,
-    isBookmark: false
+    isBookmark: false,
+    coords: [52.3909553943508, 4.85309666406198],
   },
   {
     id: 2,
@@ -17,7 +18,8 @@ const offers = [
     price: `80`,
     rating: 3,
     isPremium: false,
-    isBookmark: false
+    isBookmark: false,
+    coords: [52.3909553943508, 4.85309666406198],
   },
   {
     id: 3,
@@ -27,7 +29,8 @@ const offers = [
     price: `130`,
     rating: 5,
     isPremium: false,
-    isBookmark: true
+    isBookmark: true,
+    coords: [52.3909553943508, 4.85309666406198],
   },
   {
     id: 4,
@@ -37,7 +40,8 @@ const offers = [
     price: `80`,
     rating: 2.8,
     isPremium: true,
-    isBookmark: true
+    isBookmark: true,
+    coords: [52.3909553943508, 4.85309666406198],
   }
 ];
 
