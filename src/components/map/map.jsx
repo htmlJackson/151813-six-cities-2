@@ -23,7 +23,8 @@ class Map extends React.PureComponent {
   }
 
   initializeMap() {
-    const container = this.mapRef.current;
+    let container = this.mapRef.current;
+
     const map = leaflet.map(container, {
       center: mapConfig.CITY,
       zoom: mapConfig.ZOOM,
@@ -52,15 +53,15 @@ class Map extends React.PureComponent {
   }
 
   render() {
-    return <div className="cities__map map" id="map" ref={this.mapRef} />
+    return <div className="cities__map map" id="map" ref={this.mapRef} />;
   }
 }
 
 Map.propTypes = {
   coords: PropTypes.arrayOf(
-    PropTypes.arrayOf(
-      PropTypes.number.isRequired
-    ).isRequired
+      PropTypes.arrayOf(
+          PropTypes.number.isRequired
+      ).isRequired
   ).isRequired,
 };
 
