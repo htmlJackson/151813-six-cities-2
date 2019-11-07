@@ -4,7 +4,7 @@ import leaflet from "leaflet";
 
 const mapConfig = {
   ZOOM: 12,
-  ICON_URL: `imp/pin.svg`,
+  ICON_URL: `img/pin.svg`,
   ICON_SIZE: [30, 30],
   TILE_LAYER: `https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`,
   TILE_ATTRIBUTE: `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>`,
@@ -42,8 +42,8 @@ class Map extends React.PureComponent {
       iconSize: mapConfig.ICON_SIZE
     });
 
-    const offersCoordinates = this.props.coordinates;
-    offersCoordinates.forEach((it) => {
+    const offersCoords = this.props.coords;
+    offersCoords.forEach((it) => {
       leaflet
         .marker(it, {icon})
         .addTo(map);
@@ -57,7 +57,7 @@ class Map extends React.PureComponent {
 }
 
 Map.propTypes = {
-  coordinates: PropTypes.arrayOf(
+  coords: PropTypes.arrayOf(
     PropTypes.arrayOf(
       PropTypes.number.isRequired
     ).isRequired

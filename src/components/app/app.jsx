@@ -102,8 +102,7 @@ const App = (props) => {
               <PlacesList places={places} />
             </section>
             <div className="cities__right-section">
-            <Map coordinates={places.map((it) => it.coordinates)}
-              <section className="cities__map map"></section>
+            <Map coords={places.map((it) => it.coords)} />
             </div>
           </div>
         </div>
