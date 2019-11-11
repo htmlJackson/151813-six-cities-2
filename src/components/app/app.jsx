@@ -1,7 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import PlacesList from '../places-list/places-list.jsx';
+import PlacesList from "../places-list/places-list.jsx";
+
+import Map from "../map/map.jsx";
 
 const App = (props) => {
   const {places} = props;
@@ -100,7 +102,7 @@ const App = (props) => {
               <PlacesList places={places} />
             </section>
             <div className="cities__right-section">
-              <section className="cities__map map"></section>
+              <Map coords={places.map((it) => it.coords)} />
             </div>
           </div>
         </div>
