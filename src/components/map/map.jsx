@@ -23,7 +23,7 @@ class Map extends React.PureComponent {
   }
 
   initializeMap() {
-    let container = this.mapRef.current;
+    const container = this.mapRef.current;
 
     const map = leaflet.map(container, {
       center: mapConfig.CITY,

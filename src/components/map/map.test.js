@@ -12,27 +12,6 @@ const mockCoordsArray = [
 ];
 
 it(`Map correctly renders after relaunch`, () => {
-  jest.mock(`leaflet`, () => {
-    return {
-      icon: jest.fn(),
-      tileLayer: jest.fn().mocImplementation(() => {
-        return {
-          addTo: jest.fn(),
-        };
-      }),
-      marker: jest.fn().mocImplementation(() => {
-        return {
-          addTo: jest.fn(),
-        };
-      }),
-      map: jest.fn().mocImplementation(() => {
-        return {
-          setView: jest.fn(),
-        };
-      }),
-    };
-  });
-
   const tree = renderer.create(<Map coords={mockCoordsArray} />).toJSON();
 
   expect(tree).toMatchSnapshot();

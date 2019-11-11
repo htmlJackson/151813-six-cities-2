@@ -21,4 +21,4 @@ leaflet.tileLayer = () => {
   };
 };
 
-module.exports = leaflet;
+export default leaflet;
