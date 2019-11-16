@@ -16,40 +16,59 @@ class Map extends React.PureComponent {
     super(props);
 
     this.mapRef = React.createRef();
+    this.element = null;
+    this.markers = [];
   }
 
-  componentDidMount() {
-    this.initializeMap();
-  }
-
-  initializeMap() {
-    const container = this.mapRef.current;
-
-    const map = leaflet.map(container, {
-      center: mapConfig.CITY,
+  createArea(elem, city = mapConfig.CITY) {
+    this.element = leaflet.map(elem, {
+      center: city,
       zoom: mapConfig.ZOOM,
       zoomControl: false,
       marker: true
     });
+    this.element.setView(city, mapConfig.ZOOM);
+  }
 
-    map.setView(mapConfig.CITY, mapConfig.ZOOM);
-
-    leaflet
-      .tileLayer(mapConfig.TILE_LAYER, {attribution: mapConfig.TILE_ATTRIBUTE})
-      .addTo(map);
-
+  renderMarker(coords) {
     const icon = leaflet.icon({
       iconUrl: mapConfig.ICON_URL,
       iconSize: mapConfig.ICON_SIZE
     });
 
-    const offersCoords = this.props.coords;
-    offersCoords.forEach((it) => {
-      leaflet
-        .marker(it, {icon})
-        .addTo(map);
-    });
+    if (coords) {
+      this.markers.push(this.layerGroup = leaflet
+        .marker(coords, {icon})
+        .addTo(this.element));
+    }
+  }
 
+  renderPlaces(places) {
+    leaflet
+      .tileLayer(mapConfig.TILE_LAYER, {attribution: mapConfig.TILE_ATTRIBUTE})
+      .addTo(this.element);
+
+    places.forEach((it) => this.renderMarker(it.coords));
+  }
+
+
+  componentDidMount() {
+    this.createArea(this.mapRef.current);
+    this.renderMap();
+  }
+
+  componentDidUpdate() {
+    this.markers.forEach((marker) => {
+      this.element.removeLayer(marker);
+    });
+    this.renderMap();
+  }
+
+  renderMap() {
+    const {places} = this.props;
+    if (this.element) {
+      this.renderPlaces(places);
+    }
   }
 
   render() {
@@ -58,11 +77,7 @@ class Map extends React.PureComponent {
 }
 
 Map.propTypes = {
-  coords: PropTypes.arrayOf(
-      PropTypes.arrayOf(
-          PropTypes.number.isRequired
-      ).isRequired
-  ).isRequired,
+  places: PropTypes.array.isRequired,
 };
 
 
