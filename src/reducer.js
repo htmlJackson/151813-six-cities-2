@@ -4,8 +4,8 @@ const citiesList = offers.reduce((acc, offer) => {
   if (!acc.includes(offer.city)) {
     acc.push(offer.city);
     return acc;
- };
- return acc;
+  }
+  return acc;
 }, []);
 
 const getOffersByCity = (allOffers, city) => {
