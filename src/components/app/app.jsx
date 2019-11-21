@@ -8,6 +8,11 @@ import PlacesList from "../places-list/places-list.jsx";
 import Map from "../map/map.jsx";
 import Locations from "../locations/locations.jsx";
 
+import withActiveItem from '../../hocs/with-active-item';
+
+const LocationsWrapped = withActiveItem(Locations);
+const PlacesListWrapped = withActiveItem(PlacesList);
+
 const App = (props) => {
   const places = props.offersByCity;
 
@@ -38,7 +43,7 @@ const App = (props) => {
       <main className="page__main page__main--index">
         <h1 className="visually-hidden">Cities</h1>
         <div className="tabs">
-          <Locations offers={props.offers} citiesList={props.citiesList} city={props.city} onCityClick={props.onCityClick} />
+          <LocationsWrapped offers={props.offers} citiesList={props.citiesList} activeItem={props.city} onCityClick={props.onCityClick} />
         </div>
         <div className="cities">
           <div className="cities__places-container container">
@@ -70,7 +75,7 @@ const App = (props) => {
                 */}
 
               </form>
-              <PlacesList places={places} />
+              <PlacesListWrapped places={places} />
             </section>
             <div className="cities__right-section">
               <Map places={props.offersByCity} />

@@ -6,7 +6,7 @@ import {offers} from "../../mocks/offers.js";
 it(`Place-list correctly renders after relaunch`, () => {
   const mocOffers = offers;
   const tree = renderer
-  .create(<PlacesList places={mocOffers} />)
+  .create(<PlacesList places={mocOffers} onActivateItem={jest.fn()} />)
   .toJSON();
 
   expect(tree).toMatchSnapshot();
