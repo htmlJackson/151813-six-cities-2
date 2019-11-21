@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 
 const Locations = (props) => {
-  const {offers, citiesList, city, onCityClick} = props;
+  const {citiesList, city, onCityClick} = props;
   const MAX_CITIES_TO_SHOW = 6;
   return (
     <section className="locations container">
@@ -13,7 +13,7 @@ const Locations = (props) => {
             <li className="locations__item" key={`locations__item-${i}`}>
               <a className={`locations__item-link tabs__item ${it === city ? ` tabs__item--active` : ``}`} href="#" onClick={(evt) => {
                 evt.preventDefault();
-                onCityClick(offers, it);
+                onCityClick(it);
               }}>
                 <span>{it}</span>
               </a>

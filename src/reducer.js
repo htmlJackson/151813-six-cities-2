@@ -1,7 +1,5 @@
 import {offers} from './mocks/offers.js';
-
 const citiesList = [];
-
 for (let offer of offers) {
   if (!citiesList.includes(offer.city)) {
     citiesList.push(offer.city);
