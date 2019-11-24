@@ -1,10 +1,12 @@
 import {offers} from './mocks/offers.js';
-const citiesList = [];
-for (let offer of offers) {
-  if (!citiesList.includes(offer.city)) {
-    citiesList.push(offer.city);
+
+const citiesList = offers.reduce((acc, offer) => {
+  if (!acc.includes(offer.city)) {
+    acc.push(offer.city);
+    return acc;
   }
-}
+  return acc;
+}, []);
 
 const getOffersByCity = (allOffers, city) => {
   return allOffers.filter((item) => {

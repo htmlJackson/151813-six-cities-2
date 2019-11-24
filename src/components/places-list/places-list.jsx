@@ -2,42 +2,28 @@ import React from "react";
 import PropTypes from "prop-types";
 import PlaceCard from '../place-card/place-card.jsx';
 
-class PlacesList extends React.PureComponent {
-  constructor(props) {
-    super(props);
+const PlacesList = (props) => {
+  const {places, onActivateItem} = props;
 
-    this.state = {
-      activeCard: null,
-    };
-
-    this.handleCardHover = this.handleCardHover.bind(this);
-    this.handleNameClick = this.handleNameClick.bind(this);
-  }
-
-  handleCardHover(offerId) {
+  const handleCardHover = (offerId) => {
     return () => {
-      this.setState({acriveCard: offerId});
+      onActivateItem(offerId);
     };
+  };
 
-  }
+  const handleNameClick = () => {};
 
-  handleNameClick() {
-
-  }
-
-  render() {
-    const {places} = this.props;
-    return (
-      <div className="cities__places-list places__list tabs__content">
-        {places.map((it, index) => <PlaceCard offer={places[index]} onNameClick={this.handleNameClick} onCardHover={this.handleCardHover} key={`place-${index}`} />)}
-      </div>
-    );
-  }
-}
+  return (
+    <div className="cities__places-list places__list tabs__content">
+      {places.map((it, index) => <PlaceCard offer={places[index]} onNameClick={handleNameClick} onCardHover={handleCardHover} key={`place-${index}`} />)}
+    </div>
+  );
+};
 
 
 PlacesList.propTypes = {
-  places: PropTypes.array.isRequired
+  places: PropTypes.array.isRequired,
+  onActivateItem: PropTypes.func.isRequired,
 };
 
 export default PlacesList;
